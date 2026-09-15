@@ -1,4 +1,4 @@
-# [Nombre de la Cafetería] — Sitio Web Oficial
+# [la cafetria del ronroneoo] — Sitio Web Oficial
 
 Repositorio correspondiente al sitio web oficial de **[Nombre de la Cafetería]**. El proyecto consiste en una plataforma digital orientada a la presentación del catálogo de productos, información institucional, ubicación del establecimiento y canales de contacto.
 
