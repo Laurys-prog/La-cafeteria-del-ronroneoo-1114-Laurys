@@ -1,0 +1,10 @@
+:root { --espresso: #1c100b; --coffee: #2b1a14; --cream: #f5f0eb; --gold: #c5a059; --muted: #d7c6b6; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; color: var(--cream); background: var(--espresso); line-height: 1.5; }
+.site-header, main, footer { max-width: 1120px; margin: auto; padding-inline: 1.25rem; }
+.site-header { padding-block: 3.5rem 2rem; background: linear-gradient(130deg, #1c100b, #40261c); max-width: none; padding-left: max(1.25rem, calc((100% - 1120px) / 2 + 1.25rem)); }
+h1, h2, h3, p { margin-top: 0; }.eyebrow, .category { color: var(--gold); font-size: .78rem; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; }
+.layout { display: grid; gap: 2rem; grid-template-columns: minmax(0, 2fr) minmax(270px, 1fr); padding-block: 2rem 4rem; }.product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.product-card, .cart { border: 1px solid #5c4035; background: var(--coffee); border-radius: 14px; padding: 1.25rem; }.product-card { display: flex; flex-direction: column; }.product-card p:not(.category) { color: var(--muted); }.product-footer, .cart-total, .cart li { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: auto; }
+button { cursor: pointer; border: 0; border-radius: 7px; padding: .65rem .8rem; background: var(--gold); color: #1c100b; font-weight: bold; }button:hover:not(:disabled) { background: #e2bc70; }button:disabled { cursor: not-allowed; opacity: .6; }.cart { align-self: start; position: sticky; top: 1rem; }.cart ul { padding: 0; list-style: none; }.cart li { border-bottom: 1px solid #5c4035; padding: .8rem 0; }.quantity { display: flex; gap: .5rem; align-items: center; }.quantity button { min-width: 2rem; padding: .25rem; }.empty-cart { color: var(--muted); }.cart-total { font-size: 1.15rem; padding-top: 1rem; }.confirm { width: 100%; margin-top: 1rem; }footer { border-top: 1px solid #5c4035; color: var(--muted); padding-block: 1.5rem; }
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; }.product-grid { grid-template-columns: 1fr; }.cart { position: static; } }

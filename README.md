@@ -1,6 +1,6 @@
-# [la cafetria del ronroneoo] — Sitio Web Oficial
+# La Cafetería del Ronroneoo — Sitio Web Oficial
 
-Repositorio correspondiente al sitio web oficial de **[Nombre de la Cafetería]**. El proyecto consiste en una plataforma digital orientada a la presentación del catálogo de productos, información institucional, ubicación del establecimiento y canales de contacto.
+Repositorio correspondiente al sitio web oficial de **La Cafetería del Ronroneoo**. El proyecto consiste en una plataforma digital orientada a la presentación del catálogo de productos, información institucional, ubicación del establecimiento y canales de contacto.
 
 ---
 
@@ -38,18 +38,32 @@ El sitio web tiene como objetivo principal digitalizar la oferta comercial de la
 
 ---
 
-##  Estructura del Repositorio
+## Estructura del Repositorio
 
 ```text
-├── assets/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   └── main.js
-│   └── img/
-│       ├── logo.png
-│       └── menu/
+├── css/
+│   └── styles.css
+├── js/
+│   ├── app.js
+│   └── products.mjs
+├── tests/
+│   └── catalog.test.mjs
 ├── index.html
-├── menu.html
-├── contacto.html
 └── README.md
+```
+
+## Estado actual
+
+El MVP inicial incluye un menú con seis productos, carrito local, control de cantidades y cálculo de total. La confirmación de pedido, reservas, dedicatorias, pagos e integraciones se desarrollarán por incrementos posteriores.
+
+Para verificar los datos del catálogo desde la terminal:
+
+```bash
+node tests/catalog.test.mjs
+```
+
+## Roadmap
+
+1. Confirmación local de la comanda y mensajes de interfaz.
+2. Información de horario y ubicación.
+3. Funcionalidades de dedicatorias y reservas, solo después de validar los incrementos anteriores.
