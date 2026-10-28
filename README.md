@@ -1,69 +1,41 @@
-# La Cafetería del Ronroneoo — Sitio Web Oficial
+# La Cafetería del Ronroneo — base de datos real
 
-Repositorio correspondiente al sitio web oficial de **La Cafetería del Ronroneoo**. El proyecto consiste en una plataforma digital orientada a la presentación del catálogo de productos, información institucional, ubicación del establecimiento y canales de contacto.
+## Qué incluye
+- El sitio web y las imágenes del proyecto original.
+- Servidor Node.js + Express.
+- Base de datos SQLite persistente (`data/reservas.sqlite`), creada automáticamente al iniciar.
+- Formulario que guarda reservas en el servidor.
+- Consulta y eliminación de reservas protegidas con una clave de administrador.
 
----
+## Requisitos
+Instala Node.js 18 o superior desde https://nodejs.org/.
 
-##  Tabla de Contenidos
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Características](#características)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Estructura del Repositorio](#estructura-del-repositorio)
-- [Instalación y Despliegue](#instalación-y-despliegue)
-- [Roadmap](#roadmap)
-- [Licencia](#licencia)
+## Cómo iniciar en Windows
+1. Descomprime el ZIP.
+2. Abre la carpeta `cafeteria_ronroneo_con_base_real`.
+3. En la barra de dirección del Explorador escribe `cmd` y pulsa Enter (o abre una terminal en esa carpeta).
+4. Ejecuta:
+   ```bash
+   npm install
+   ```
+5. Define una clave de administrador (usa una clave propia de al menos 8 caracteres):
+   ```cmd
+   set ADMIN_KEY=ESCRIBE_AQUI_TU_CLAVE_PRIVADA
+   ```
+6. Inicia el servidor:
+   ```bash
+   npm start
+   ```
+7. Abre en el navegador **http://localhost:3000**. No abras `index.html` haciendo doble clic: el sitio debe servirse desde Node.
 
----
+## Consultar reservas
+En la sección de reservas, pulsa **Ver reservas (administrador)** e introduce la misma clave que definiste en `ADMIN_KEY`. La clave solo vive en el servidor; las consultas y eliminaciones la envían en un encabezado HTTP. No uses una clave publicada en un documento compartido. El texto `ESCRIBE_AQUI_TU_CLAVE_PRIVADA` es solo un ejemplo: reemplázalo por una clave propia antes de iniciar el servidor.
 
-##  Descripción del Proyecto
+## Dónde quedan guardadas
+SQLite guarda los datos en `data/reservas.sqlite`. Las reservas permanecen al cerrar el navegador o reiniciar el servidor, siempre que conserves esa carpeta. Haz copias de seguridad de `data/reservas.sqlite`.
 
-El sitio web tiene como objetivo principal digitalizar la oferta comercial de la cafetería, facilitando a los clientes el acceso al menú actualizado, la consulta de horarios de atención,la posibilidad de solicitar dedicatorias o mesas para ocasiones especiales, la facilidad para ordenar desde su mesa y la localización del local comercial. La plataforma está optimizada para ofrecer una navegación fluida en las pantallas ubicadas en las mesas del local .
-
----
-
-##  Características
-
-- **Catálogo digital:** Menú interactivo estructurado por categorías (cafés, bebidas frías, repostería).
-- **Diseño adaptativo (Responsive Design):** Interfaz compatible con múltiples resoluciones de pantalla.
-- **Módulo de ubicación:** Integración de mapa interactivo e información de horarios comerciales.
-- **Formulario de contacto:** Sección dedicada a consultas, reservas o sugerencias.
-
----
-
-##  Tecnologías Utilizadas
-
-- **HTML5:** Marcado semántico y estructura web.
-- **CSS3:** Estilos, maquetación adaptativa (Flexbox/CSS Grid) y variables de diseño.
-- **JavaScript (ES6+):** Lógica de interacción en el frontend y manipulación del DOM.
-
----
-
-## Estructura del Repositorio
-
-```text
-├── css/
-│   └── styles.css
-├── js/
-│   ├── app.js
-│   └── products.mjs
-├── tests/
-│   └── catalog.test.mjs
-├── index.html
-└── README.md
-```
-
-## Estado actual
-
-El MVP inicial incluye un menú con seis productos, carrito local, control de cantidades y cálculo de total. La confirmación de pedido, reservas, dedicatorias, pagos e integraciones se desarrollarán por incrementos posteriores.
-
-Para verificar los datos del catálogo desde la terminal:
-
-```bash
-node tests/catalog.test.mjs
-```
-
-## Roadmap
-
-1. Confirmación local de la comanda y mensajes de interfaz.
-2. Información de horario y ubicación.
-3. Funcionalidades de dedicatorias y reservas, solo después de validar los incrementos anteriores.
+## Importante
+- Esta base de datos funciona en el equipo donde se ejecuta el servidor. Para que clientes de otros dispositivos la usen, publica el servidor en un hosting que admita Node.js y almacenamiento persistente, y configura una clave de administrador segura como variable de entorno.
+- No publiques la base de datos ni compartas la clave de administrador. No incluyas tu clave real en el README ni en archivos que vayas a entregar o compartir.
+- Antes de usarlo con clientes reales, conviene añadir HTTPS, límites anti-spam y una política de privacidad. Las reservas contienen datos personales.
+- SQLite es una base de datos real y persistente, pero no es un servicio en la nube por sí sola.
