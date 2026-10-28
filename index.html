@@ -1,32 +1,2530 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Menú digital de La Cafetería del Ronroneoo">
-  <title>La Cafetería del Ronroneoo | Menú</title>
-  <link rel="stylesheet" href="css/styles.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>La Cafetería del Ronroneo</title>
+    <link rel="stylesheet" href="cafe.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+
+            --cafe: #2c1b15;
+            --cafe-claro: #593b2e;
+            --beige: #eee2d0;
+            --crema: #f8f2e8;
+            --dorado: #b28a5a;
+            --texto: #2b211c;
+            --blanco: #ffffff;
+
+        }
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: var(--crema);
+
+            color: var(--texto);
+
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+
+            height: 72px;
+
+            background: var(--cafe);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+        .logo {
+
+            color: white;
+
+            font-family: Georgia, serif;
+
+            font-size: 23px;
+
+            letter-spacing: 1px;
+
+        }
+
+        nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+        nav a {
+
+            color: #f5eee6;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: .3s;
+
+        }
+
+        nav a:hover {
+
+            color: var(--dorado);
+
+        }
+
+        .nav-button {
+
+            background: var(--dorado);
+
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 25px;
+
+            border: none;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            height: 610px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(30, 17, 12, .45),
+                    rgba(30, 17, 12, .45)
+                ),
+
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .hero-content {
+
+            color: white;
+
+            max-width: 800px;
+
+            padding: 20px;
+
+        }
+
+        .hero-content small {
+
+            letter-spacing: 5px;
+
+            font-size: 12px;
+
+        }
+
+        .hero-content h1 {
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(45px, 7vw, 82px);
+
+            margin: 20px 0;
+
+            line-height: 1;
+
+        }
+
+        .hero-content p {
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 30px;
+
+        }
+
+        .hero-button {
+
+            border: none;
+
+            background: var(--beige);
+
+            color: var(--cafe);
+
+            padding: 15px 32px;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+        .hero-button:hover {
+
+            background: white;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+
+            padding: 75px 8%;
+
+        }
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+        .section-title h2 {
+
+            font-family: Georgia, serif;
+
+            font-size: 38px;
+
+            color: var(--cafe);
+
+            margin-bottom: 10px;
+
+        }
+
+        .section-title p {
+
+            font-size: 12px;
+
+            color: #78695e;
+
+            max-width: 500px;
+
+            margin: auto;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           BEBIDAS
+        ========================= */
+
+        .featured {
+
+            background: var(--crema);
+
+        }
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+        .product {
+
+            background: #f1e7d8;
+
+            text-align: center;
+
+            padding-bottom: 25px;
+
+            transition: .3s;
+
+        }
+
+        .product:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 30px rgba(43, 27, 20, .12);
+
+        }
+
+        .product-image {
+
+            height: 220px;
+
+            overflow: hidden;
+
+        }
+
+        .product-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+
+        }
+
+        .product:hover img {
+
+            transform: scale(1.06);
+
+        }
+
+        .product-content {
+
+            padding: 22px;
+
+        }
+
+        .product-content h3 {
+
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            color: var(--cafe);
+
+            margin-bottom: 10px;
+
+        }
+
+        .product-content p {
+
+            font-size: 12px;
+
+            color: #75665b;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+
+        }
+
+        .price {
+
+            font-weight: bold;
+
+            color: var(--cafe);
+
+            margin-bottom: 15px;
+
+        }
+
+        .product-button {
+
+            border: none;
+
+            background: var(--cafe);
+
+            color: white;
+
+            padding: 11px 22px;
+
+            border-radius: 4px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================
+           DAILY DEAL
+        ========================= */
+
+        .daily {
+
+            background: var(--beige);
+
+        }
+
+        .daily-box {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.3fr 1fr;
+
+            min-height: 300px;
+
+        }
+
+        .daily-image {
+
+            background-image:
+
+                url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .daily-info {
+
+            background: var(--cafe);
+
+            color: white;
+
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+        .daily-info span {
+
+            color: var(--dorado);
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+        }
+
+        .daily-info h2 {
+
+            font-family: Georgia, serif;
+
+            font-size: 40px;
+
+            margin: 15px 0;
+
+        }
+
+        .daily-info p {
+
+            color: #ded1c6;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =========================
+           PEDIDO
+        ========================= */
+
+        .order {
+
+            background: #f9f5ee;
+
+        }
+
+        .order-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+
+        }
+
+        .order-text h2 {
+
+            font-family: Georgia, serif;
+
+            color: var(--cafe);
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .order-text p {
+
+            color: #6f6259;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+
+        }
+
+        .order-button {
+
+            padding: 15px 28px;
+
+            background: var(--cafe);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        .order-screen {
+
+            background: var(--cafe);
+
+            padding: 30px;
+
+            border-radius: 8px;
+
+            color: white;
+
+            box-shadow:
+                0 20px 40px rgba(44,27,21,.18);
+
+        }
+
+        .mesa {
+
+            background: var(--cafe-claro);
+
+            padding: 15px;
+
+            border-radius: 5px;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+        }
+
+        .order-item {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,.15);
+
+        }
+
+        .order-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 20px;
+
+            font-size: 20px;
+
+        }
+
+
+        /* =========================
+           RESERVAS
+        ========================= */
+
+        .reservation {
+
+            background: var(--beige);
+
+        }
+
+        .reservation-box {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 40px;
+
+            box-shadow:
+                0 15px 35px rgba(50,30,20,.08);
+
+        }
+
+        .reservation-form {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+        .field {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+        .field label {
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            color: var(--cafe);
+
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+
+            padding: 13px;
+
+            border: 1px solid #d9cbbb;
+
+            background: #fffdf9;
+
+            border-radius: 4px;
+
+            outline: none;
+
+        }
+
+        .field textarea {
+
+            min-height: 100px;
+
+            resize: vertical;
+
+        }
+
+        .full {
+
+            grid-column: 1 / -1;
+
+        }
+
+        .reservation-button {
+
+            grid-column: 1 / -1;
+
+            padding: 15px;
+
+            background: var(--cafe);
+
+            color: white;
+
+            border: none;
+
+            cursor: pointer;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           HORARIOS
+        ========================= */
+
+        .hours {
+
+            background: var(--cafe);
+
+            color: white;
+
+            text-align: center;
+
+        }
+
+        .hours h2 {
+
+            font-family: Georgia, serif;
+
+            font-size: 35px;
+
+            margin-bottom: 30px;
+
+        }
+
+        .hours-list {
+
+            max-width: 600px;
+
+            margin: auto;
+
+        }
+
+        .hours-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 15px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.15);
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #1b100c;
+
+            color: #c9bcb0;
+
+            text-align: center;
+
+            padding: 35px;
+
+        }
+
+        footer h3 {
+
+            color: white;
+
+            font-family: Georgia, serif;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =========================
+           CARRITO FLOTANTE
+        ========================= */
+
+        .cart {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 60px;
+
+            height: 60px;
+
+            border-radius: 50%;
+
+            background: var(--dorado);
+
+            color: white;
+
+            border: none;
+
+            font-size: 23px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.25);
+
+            z-index: 2000;
+
+        }
+
+        .cart-number {
+
+            position: absolute;
+
+            right: -3px;
+
+            top: -3px;
+
+            width: 22px;
+
+            height: 22px;
+
+            background: var(--cafe);
+
+            border-radius: 50%;
+
+            font-size: 11px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(20,10,5,.65);
+
+            z-index: 3000;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+        }
+
+        .modal.active {
+
+            display: flex;
+
+        }
+
+        .modal-content {
+
+            background: var(--crema);
+
+            width: 100%;
+
+            max-width: 500px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            border-radius: 6px;
+
+        }
+
+        .modal-content h2 {
+
+            font-family: Georgia, serif;
+
+            color: var(--cafe);
+
+            margin-bottom: 15px;
+
+        }
+
+        .modal-content button {
+
+            margin-top: 20px;
+
+            background: var(--cafe);
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 800px) {
+
+            header {
+
+                padding: 0 5%;
+
+            }
+
+            nav a {
+
+                display: none;
+
+            }
+
+            .products {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .daily-box {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .daily-image {
+
+                height: 280px;
+
+            }
+
+            .order-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .reservation-form {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .full {
+
+                grid-column: auto;
+
+            }
+
+            .reservation-button {
+
+                grid-column: auto;
+
+            }
+
+            section {
+
+                padding: 60px 5%;
+
+            }
+
+        }
+
+    
+/* MENÚ INTEGRADO */
+.menu { scroll-margin-top: 85px; }
+.menu .producto-footer button { flex-shrink: 0; }
+.reservations-database {
+    max-width: 1050px;
+    margin: 28px auto 0;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid #e5d7c9;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(65, 42, 28, .07);
+}
+.reservations-database-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+.reservation-admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.reservations-database h3 {
+    color: #3a2418;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    margin-bottom: 6px;
+}
+.reservations-database p { color: #75675e; line-height: 1.5; }
+.reservations-list { display: grid; gap: 12px; }
+.reservation-record {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 15px;
+    border: 1px solid #eee2d8;
+    border-radius: 12px;
+    background: #fffaf5;
+}
+.reservation-record strong { color: #3a2418; }
+.reservation-record small { display: block; color: #75675e; margin-top: 4px; }
+.reservation-status {
+    display: inline-block;
+    background: #f2e4cc;
+    color: #67451f;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.delete-reservation, .clear-reservations {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 13px;
+    cursor: pointer;
+    background: #4a2e20;
+    color: white;
+}
+.delete-reservation:hover, .clear-reservations:hover { background: #6b4632; }
+.empty-reservations { text-align: center; padding: 18px; }
+.reservation-note {
+    max-width: 1050px;
+    margin: 14px auto 0;
+    font-size: 13px;
+    color: #75675e;
+    text-align: center;
+}
+@media (max-width: 700px) {
+    .reservations-database { margin: 22px 5% 0; padding: 18px; }
+    .reservations-database-header { align-items: flex-start; flex-direction: column; }
+    .reservation-record { grid-template-columns: 1fr; }
+}
+
+    </style>
+
 </head>
+
+
 <body>
-  <header class="site-header">
-    <p class="eyebrow">Menú digital</p>
-    <h1>La Cafetería del Ronroneoo</h1>
-    <p>Elige tus productos y revisa tu comanda antes de confirmarla.</p>
-  </header>
-  <main class="layout">
-    <section aria-labelledby="menu-title">
-      <h2 id="menu-title">Nuestro menú</h2>
-      <div id="product-list" class="product-grid"></div>
-    </section>
-    <aside class="cart" aria-labelledby="cart-title">
-      <p class="eyebrow">Comanda actual</p>
-      <h2 id="cart-title">Carrito <span id="cart-count" aria-label="productos en el carrito">0</span></h2>
-      <ul id="cart-list"></ul>
-      <div class="cart-total"><span>Total</span><strong id="cart-total">$0</strong></div>
-      <button class="confirm" type="button" disabled title="La confirmación se implementará en un siguiente incremento">Confirmar pedido (próximamente)</button>
-    </aside>
-  </main>
-  <footer>Proyecto educativo — MVP de menú y carrito local.</footer>
-  <script type="module" src="js/app.js"></script>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <div class="logo">
+        🐈 La Cafetería del Ronroneo
+    </div>
+
+    <nav>
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#menu">Menú</a>
+
+        <a href="#pedido">Pedido</a>
+
+        <a href="#reservas">Reservas</a>
+
+        <a href="#horarios">Horarios</a>
+
+        <button
+            class="nav-button"
+            onclick="irA('reservas')">
+
+            Reservar mesa
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <small>LA CAFETERÍA DEL RONRONEO</small>
+
+        <h1>
+            Café hecho<br>
+            para quedarse.
+        </h1>
+
+        <p>
+            Una experiencia cálida, tranquila
+            y llena de sabor.
+        </p>
+
+        <button
+            class="hero-button"
+            onclick="irA('menu')">
+
+            EXPLORAR MENÚ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu" id="menu">
+
+    <div class="menu-header">
+        <span>☕ NUESTRO MENÚ</span>
+        <h2>Sabores que te hacen volver</h2>
+        <p>
+            Descubre nuestras bebidas preparadas especialmente
+            para acompañar tus momentos.
+        </p>
+    </div>
+
+
+    <!-- FILTROS -->
+
+    <div class="categorias">
+
+        <button class="categoria activa" data-categoria="todos">
+            Todos
+        </button>
+
+        <button class="categoria" data-categoria="calientes">
+            ☕ Calientes
+        </button>
+
+        <button class="categoria" data-categoria="frias">
+            🧊 Frías
+        </button>
+
+        <button class="categoria" data-categoria="especiales">
+            ✨ Especiales
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCTOS -->
+
+    <div class="menu-grid" id="menuGrid">
+
+
+        <!-- 1 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="expreso.jpg"
+                     alt="Espresso Intenso">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Espresso Intenso</h3>
+
+                <p>
+                    Espresso de sabor profundo y aroma intenso.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$5.500</strong>
+
+                    <button onclick="agregar(
+                        'Espresso Intenso',
+                        5500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 2 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="latte.jpg"
+                     alt="Latte Art">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Latte Art</h3>
+
+                <p>
+                    Espresso suave con leche cremosa
+                    y arte latte.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$8.500</strong>
+
+                    <button onclick="agregar(
+                        'Latte Art',
+                        8500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 3 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="espressocremoso.jpg"
+                     alt="Espresso Cremoso">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Espresso Cremoso</h3>
+
+                <p>
+                    Café intenso con una cremosa capa
+                    de espuma.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$6.000</strong>
+
+                    <button onclick="agregar(
+                        'Espresso Cremoso',
+                        6000
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 4 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="espressa.jpg"
+                     alt="Espresso">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Espresso</h3>
+
+                <p>
+                    Un clásico intenso, aromático
+                    y equilibrado.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$5.500</strong>
+
+                    <button onclick="agregar(
+                        'Espresso',
+                        5500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 5 -->
+
+        <article class="producto" data-categoria="frias">
+
+            <div class="producto-imagen">
+                <img src="icedlatte.jpg"
+                     alt="Iced Latte">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Fría
+                </span>
+
+                <h3>Iced Latte</h3>
+
+                <p>
+                    Café, leche y hielo para una bebida
+                    suave y refrescante.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$9.500</strong>
+
+                    <button onclick="agregar(
+                        'Iced Latte',
+                        9500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 6 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="capucchinocremoso.jpg"
+                     alt="Capuchino Cremoso">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Capuchino Cremoso</h3>
+
+                <p>
+                    Espresso, leche vaporizada y espuma
+                    cremosa.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$8.500</strong>
+
+                    <button onclick="agregar(
+                        'Capuchino Cremoso',
+                        8500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 7 -->
+
+        <article class="producto" data-categoria="frias">
+
+            <div class="producto-imagen">
+                <img src="icedcoffee.jpg"
+                     alt="Iced Coffee">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Fría
+                </span>
+
+                <h3>Iced Coffee</h3>
+
+                <p>
+                    Café frío con hielo y una textura
+                    ligera y refrescante.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$8.500</strong>
+
+                    <button onclick="agregar(
+                        'Iced Coffee',
+                        8500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 8 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="mocaccino.jpg"
+                     alt="Mocaccino">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Mocaccino</h3>
+
+                <p>
+                    Café espresso combinado con chocolate
+                    y leche cremosa.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$9.000</strong>
+
+                    <button onclick="agregar(
+                        'Mocaccino',
+                        9000
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 9 -->
+
+        <article class="producto" data-categoria="especiales">
+
+            <div class="producto-imagen">
+                <img src="lattevainilla.jpg"
+                     alt="Latte de Vainilla">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Especial
+                </span>
+
+                <h3>Latte de Vainilla</h3>
+
+                <p>
+                    Latte suave con un delicado toque
+                    de vainilla.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$9.500</strong>
+
+                    <button onclick="agregar(
+                        'Latte de Vainilla',
+                        9500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 10 -->
+
+        <article class="producto" data-categoria="especiales">
+
+            <div class="producto-imagen">
+                <img src="cremadecafe.jpg"
+                     alt="Crema de Café">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Especial
+                </span>
+
+                <h3>Crema de Café</h3>
+
+                <p>
+                    Café cremoso con una textura suave
+                    y dulce.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$10.000</strong>
+
+                    <button onclick="agregar(
+                        'Crema de Café',
+                        10000
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 11 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="cafeamericano.jpg"
+                     alt="Café Americano">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3>Café Americano</h3>
+
+                <p>
+                    Espresso alargado con agua caliente.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$5.500</strong>
+
+                    <button onclick="agregar(
+                        'Café Americano',
+                        5500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 12 -->
+
+        <article class="producto" data-categoria="frias">
+
+            <div class="producto-imagen">
+                <img src="lattecaramelo.jpg"
+                     alt="Latte Caramelo">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Fría
+                </span>
+
+                <h3>Latte Caramelo</h3>
+
+                <p>
+                    Latte frío con notas dulces
+                    de caramelo.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$10.000</strong>
+
+                    <button onclick="agregar(
+                        'Latte Caramelo',
+                        10000
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 13 -->
+
+        <article class="producto" data-categoria="calientes">
+
+            <div class="producto-imagen">
+                <img src="chocolate.jpg"
+                     alt="Espresso Intenso">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Caliente
+                </span>
+
+                <h3> Chocolate</h3>
+
+                <p>
+                    El sabor que te lleva a casa.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$5.500</strong>
+
+                    <button onclick="agregar(
+                        'Chocolate',
+                        5500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 14 -->
+
+        <article class="producto" data-categoria="especiales">
+
+            <div class="producto-imagen">
+                <img src="coldfoam.jpg"
+                     alt="Cold Foam">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Especial
+                </span>
+
+                <h3>Cold Foam</h3>
+
+                <p>
+                    Café frío coronado con una espuma
+                    ligera y cremosa.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$10.500</strong>
+
+                    <button onclick="agregar(
+                        'Cold Foam',
+                        10500
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 15 -->
+
+        <article class="producto" data-categoria="especiales">
+
+            <div class="producto-imagen">
+                <img src="icecaramel.jpg"
+                     alt="Iced Caramel">
+            </div>
+
+            <div class="producto-info">
+
+                <span class="producto-categoria">
+                    Especial
+                </span>
+
+                <h3>Iced Caramel</h3>
+
+                <p>
+                    Café frío, leche, hielo y caramelo.
+                </p>
+
+                <div class="producto-footer">
+
+                    <strong>$10.000</strong>
+
+                    <button onclick="agregar(
+                        'Iced Caramel',
+                        10000
+                    )">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DAILY DEAL
+========================= -->
+
+<section class="daily">
+
+    <div class="section-title">
+
+        <h2>Experiencia del día</h2>
+
+        <p>
+            Una combinación especial para
+            disfrutar tu tarde.
+        </p>
+
+    </div>
+
+
+    <div class="daily-box">
+
+        <div class="daily-image"></div>
+
+        <div class="daily-info">
+
+            <span>HOY EN RONRONEO</span>
+
+            <h2>
+                Café + Croissant
+            </h2>
+
+            <p>
+                Disfruta un café de la casa acompañado
+                de nuestro croissant artesanal recién
+                horneado.
+            </p>
+
+            <button
+                class="hero-button"
+                onclick="agregar(
+                    'Combo Café + Croissant',
+                    12000
+                )">
+
+                $12.000 · AGREGAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PEDIDOS DESDE LA MESA
+========================= -->
+
+<section class="order" id="pedido">
+
+    <div class="order-container">
+
+        <div class="order-text">
+
+            <h2>
+                Pide desde<br>
+                tu mesa.
+            </h2>
+
+            <p>
+                Escanea, explora nuestro menú y realiza
+                tu pedido sin tener que levantarte.
+                Nosotros nos encargamos del resto.
+            </p>
+
+            <button
+                class="order-button"
+                onclick="mostrarPedido()">
+
+                VER MI PEDIDO
+
+            </button>
+
+        </div>
+
+
+        <div class="order-screen">
+
+            <div class="mesa">
+
+                🪑 Mesa <strong>07</strong>
+
+            </div>
+
+            <div id="previewPedido">
+
+                <div class="order-item">
+
+                    <span>
+                        Tu pedido está vacío
+                    </span>
+
+                    <span>
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="order-total">
+
+                <span>Total</span>
+
+                <strong id="total">
+                    $0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESERVAS
+========================= -->
+
+<section class="reservation" id="reservas">
+
+    <div class="section-title">
+
+        <h2>Reserva tu mesa</h2>
+
+        <p>
+            Haz de tu visita un momento especial.
+        </p>
+
+    </div>
+
+
+    <div class="reservation-box">
+
+        <form
+            class="reservation-form"
+            onsubmit="reservar(event)">
+
+
+            <div class="field">
+
+                <label>
+                    NOMBRE
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Tu nombre"
+                    required>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    PERSONAS
+                </label>
+
+                <select id="personas">
+
+                    <option>1 persona</option>
+
+                    <option>2 personas</option>
+
+                    <option>3 personas</option>
+
+                    <option>4 personas</option>
+
+                    <option>5 personas</option>
+
+                    <option>6+ personas</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    FECHA
+                </label>
+
+                <input
+                    type="date"
+                    id="fecha"
+                    required>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    HORA
+                </label>
+
+                <input
+                    type="time"
+                    id="hora"
+                    required>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label>
+                    DEDICATORIA / OCASIÓN ESPECIAL
+                </label>
+
+                <textarea
+                    id="dedicatoria"
+                    placeholder="¿Es un cumpleaños, aniversario o una ocasión especial? Cuéntanos..."></textarea>
+
+            </div>
+
+
+            <button
+                class="reservation-button"
+                type="submit">
+
+                SOLICITAR RESERVA
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HORARIOS
+========================= -->
+
+
+    <div class="reservations-database" aria-labelledby="reservationsDatabaseTitle">
+        <div class="reservations-database-header">
+            <div>
+                <h3 id="reservationsDatabaseTitle">Administración de reservas</h3>
+                <p>Las reservas se guardan en la base de datos del servidor. Solo el administrador puede consultarlas o eliminarlas.</p>
+            </div>
+            <div class="reservation-admin-actions">
+                <button type="button" class="clear-reservations" onclick="cargarReservasAdmin()">Ver reservas (administrador)</button>
+                <button type="button" class="clear-reservations" onclick="vaciarReservas()">Borrar todas</button>
+            </div>
+        </div>
+        <p id="estadoReservasAdmin" class="empty-reservations">Inicia sesión como administrador para consultar las reservas.</p>
+        <div id="listaReservas" class="reservations-list"></div>
+    </div>
+
+<section class="hours" id="horarios">
+
+    <h2>
+        Horarios de atención
+    </h2>
+
+
+    <div class="hours-list">
+
+        <div class="hours-row">
+
+            <span>
+                Lunes — Viernes
+            </span>
+
+            <strong>
+                8:00 AM — 9:00 PM
+            </strong>
+
+        </div>
+
+
+        <div class="hours-row">
+
+            <span>
+                Sábado
+            </span>
+
+            <strong>
+                9:00 AM — 10:00 PM
+            </strong>
+
+        </div>
+
+
+        <div class="hours-row">
+
+            <span>
+                Domingo
+            </span>
+
+            <strong>
+                9:00 AM — 7:00 PM
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>
+        🐈 La Cafetería del Ronroneo
+    </h3>
+
+    <p>
+        Café, calma y buenos momentos.
+    </p>
+
+    <br>
+
+    <small>
+        © 2026 La Cafetería del Ronroneo
+    </small>
+
+</footer>
+
+
+<!-- =========================
+     CARRITO
+========================= -->
+
+<button
+    class="cart"
+    onclick="mostrarPedido()">
+
+    🛒
+
+    <span
+        class="cart-number"
+        id="cartNumber">
+
+        0
+
+    </span>
+
+</button>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal">
+
+    <div class="modal-content">
+
+        <h2 id="modalTitle">
+            ¡Listo!
+        </h2>
+
+        <p id="modalText">
+        </p>
+
+        <button onclick="cerrarModal()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       CARRITO
+    ========================= */
+
+    let carrito = [];
+
+
+    function agregar(nombre, precio) {
+
+        carrito.push({
+            nombre: nombre,
+            precio: precio
+        });
+
+
+        actualizarCarrito();
+
+
+        mostrarModal(
+            "Producto agregado",
+            nombre + " fue agregado a tu pedido."
+        );
+
+    }
+
+
+    function actualizarCarrito() {
+
+        const contenedor =
+            document.getElementById(
+                "previewPedido"
+            );
+
+
+        const numero =
+            document.getElementById(
+                "cartNumber"
+            );
+
+
+        const total =
+            document.getElementById(
+                "total"
+            );
+
+
+        numero.textContent =
+            carrito.length;
+
+
+        if (carrito.length === 0) {
+
+            contenedor.innerHTML = `
+                <div class="order-item">
+                    <span>
+                        Tu pedido está vacío
+                    </span>
+
+                    <span>—</span>
+                </div>
+            `;
+
+            total.textContent = "$0";
+
+            return;
+
+        }
+
+
+        contenedor.innerHTML = "";
+
+
+        let suma = 0;
+
+
+        carrito.forEach((producto) => {
+
+            suma += producto.precio;
+
+
+            const item =
+                document.createElement("div");
+
+
+            item.className =
+                "order-item";
+
+
+            item.innerHTML = `
+
+                <span>
+                    ${producto.nombre}
+                </span>
+
+                <strong>
+                    $${producto.precio.toLocaleString(
+                        "es-CO"
+                    )}
+                </strong>
+
+            `;
+
+
+            contenedor.appendChild(item);
+
+        });
+
+
+        total.textContent =
+            "$" +
+            suma.toLocaleString("es-CO");
+
+    }
+
+
+    /* =========================
+       PEDIDO
+    ========================= */
+
+    function mostrarPedido() {
+
+        irA("pedido");
+
+    }
+
+
+    /* =========================
+       RESERVA
+    ========================= */
+
+    const API_RESERVAS = "/api/reservas";
+    let claveAdmin = "";
+
+    async function reservar(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const personas = document.getElementById("personas").value;
+        const fecha = document.getElementById("fecha").value;
+        const hora = document.getElementById("hora").value;
+        const dedicatoria = document.getElementById("dedicatoria").value.trim();
+
+        if (!nombre || !fecha || !hora) {
+            mostrarModal("Datos incompletos", "Por favor completa tu nombre, fecha y hora.");
+            return;
+        }
+
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+        const fechaElegida = new Date(fecha + "T00:00:00");
+        if (fechaElegida < hoy) {
+            mostrarModal("Fecha no válida", "Selecciona hoy o una fecha futura.");
+            return;
+        }
+
+        try {
+            const respuesta = await fetch(API_RESERVAS, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nombre, personas, fecha, hora, dedicatoria })
+            });
+            const resultado = await respuesta.json();
+            if (!respuesta.ok) throw new Error(resultado.error || "No se pudo guardar la reserva.");
+
+            mostrarModal(
+                "Solicitud recibida",
+                `Gracias, ${nombre}. Tu solicitud para el ${fecha} a las ${hora} se guardó en la base de datos. Estado: pendiente de confirmación.`
+            );
+            event.target.reset();
+            if (claveAdmin) await cargarReservasConClave();
+        } catch (error) {
+            console.error(error);
+            mostrarModal("No se pudo guardar", "No logramos conectar con el servidor. Comprueba que la aplicación esté iniciada e inténtalo de nuevo.");
+        }
+    }
+
+    async function cargarReservasAdmin() {
+        const estado = document.getElementById("estadoReservasAdmin");
+        if (!claveAdmin) {
+            claveAdmin = prompt("Introduce la clave de administrador:");
+            if (!claveAdmin) return;
+        }
+        try {
+            await cargarReservasConClave();
+        } catch (error) {
+            claveAdmin = "";
+            estado.textContent = "No se pudo autenticar. Verifica la clave e inténtalo otra vez.";
+            mostrarModal("Acceso denegado", "La clave no es válida o el servidor no está disponible.");
+        }
+    }
+
+    async function cargarReservasConClave() {
+        const respuesta = await fetch(API_RESERVAS, {
+            headers: { "x-admin-key": claveAdmin }
+        });
+        const resultado = await respuesta.json();
+        if (!respuesta.ok) throw new Error(resultado.error || "No se pudieron cargar las reservas.");
+        renderizarReservas(resultado);
+    }
+
+    function renderizarReservas(reservas) {
+        const contenedor = document.getElementById("listaReservas");
+        const estado = document.getElementById("estadoReservasAdmin");
+        if (!contenedor) return;
+        contenedor.replaceChildren();
+        estado.textContent = `${reservas.length} reserva(s) guardada(s) en la base de datos del servidor.`;
+
+        if (reservas.length === 0) {
+            const vacio = document.createElement("p");
+            vacio.className = "empty-reservations";
+            vacio.textContent = "Todavía no hay reservas registradas.";
+            contenedor.appendChild(vacio);
+            return;
+        }
+
+        reservas.forEach((reserva) => {
+            const tarjeta = document.createElement("article");
+            tarjeta.className = "reservation-record";
+
+            const cliente = document.createElement("div");
+            const nombre = document.createElement("strong");
+            nombre.textContent = reserva.nombre;
+            const detalle = document.createElement("small");
+            detalle.textContent = `${reserva.personas} · ${reserva.dedicatoria || "Sin ocasión especial"}`;
+            cliente.append(nombre, detalle);
+
+            const fechaHora = document.createElement("div");
+            const fecha = document.createElement("strong");
+            fecha.textContent = reserva.fecha;
+            const hora = document.createElement("small");
+            hora.textContent = `Hora: ${reserva.hora}`;
+            fechaHora.append(fecha, hora);
+
+            const estadoWrap = document.createElement("div");
+            const estadoReserva = document.createElement("span");
+            estadoReserva.className = "reservation-status";
+            estadoReserva.textContent = reserva.estado || "Pendiente";
+            estadoWrap.appendChild(estadoReserva);
+
+            const borrar = document.createElement("button");
+            borrar.type = "button";
+            borrar.className = "delete-reservation";
+            borrar.textContent = "Eliminar";
+            borrar.setAttribute("aria-label", `Eliminar reserva de ${reserva.nombre}`);
+            borrar.addEventListener("click", () => eliminarReserva(reserva.id));
+
+            tarjeta.append(cliente, fechaHora, estadoWrap, borrar);
+            contenedor.appendChild(tarjeta);
+        });
+    }
+
+    async function eliminarReserva(id) {
+        if (!claveAdmin) {
+            mostrarModal("Acceso requerido", "Vuelve a pulsar Ver reservas e inicia sesión como administrador.");
+            return;
+        }
+        if (!confirm("¿Seguro que quieres eliminar esta reserva?")) return;
+        try {
+            const respuesta = await fetch(`${API_RESERVAS}/${encodeURIComponent(id)}`, {
+                method: "DELETE",
+                headers: { "x-admin-key": claveAdmin }
+            });
+            const resultado = await respuesta.json();
+            if (!respuesta.ok) throw new Error(resultado.error || "No se pudo eliminar.");
+            await cargarReservasConClave();
+        } catch (error) {
+            mostrarModal("Error", "No se pudo eliminar la reserva. Comprueba el acceso al servidor.");
+        }
+    }
+
+    async function vaciarReservas() {
+        if (!claveAdmin) {
+            await cargarReservasAdmin();
+            if (!claveAdmin) return;
+        }
+        if (!confirm("¿Seguro que quieres borrar TODAS las reservas de la base de datos? Esta acción no se puede deshacer.")) return;
+        try {
+            const respuesta = await fetch(API_RESERVAS, {
+                method: "DELETE",
+                headers: { "x-admin-key": claveAdmin }
+            });
+            const resultado = await respuesta.json();
+            if (!respuesta.ok) throw new Error(resultado.error || "No se pudieron eliminar.");
+            await cargarReservasConClave();
+            mostrarModal("Reservas eliminadas", "Se borraron todas las reservas de la base de datos.");
+        } catch (error) {
+            mostrarModal("Error", "No se pudieron eliminar las reservas.");
+        }
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    function mostrarModal(
+        titulo,
+        mensaje
+    ) {
+
+        document.getElementById(
+            "modalTitle"
+        ).textContent = titulo;
+
+
+        document.getElementById(
+            "modalText"
+        ).textContent = mensaje;
+
+
+        document.getElementById(
+            "modal"
+        ).classList.add("active");
+
+    }
+
+
+    function cerrarModal() {
+
+        document.getElementById(
+            "modal"
+        ).classList.remove("active");
+
+    }
+
+
+    /* =========================
+       SCROLL
+    ========================= */
+
+    function irA(id) {
+
+        document
+            .getElementById(id)
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const fechaInput = document.getElementById("fecha");
+        if (fechaInput) {
+            const hoy = new Date();
+            const yyyy = hoy.getFullYear();
+            const mm = String(hoy.getMonth() + 1).padStart(2, "0");
+            const dd = String(hoy.getDate()).padStart(2, "0");
+            fechaInput.min = `${yyyy}-${mm}-${dd}`;
+        }
+        renderizarReservas();
+    });
+
+</script>
+
+
 </body>
+
 </html>
